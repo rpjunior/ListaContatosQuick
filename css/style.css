@@ -1,0 +1,119 @@
+.imgRedonda {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.containerNome {
+	position: absolute;
+    top: 25%;
+    left: 120px;
+	width: 80%;
+}
+
+.listaContatos {
+	background-color: whitesmoke;
+	padding: 0px;
+	border: 1px solid grey;
+	margin: 0px;
+}
+
+.campoObrigatorio {
+	color: red;
+	font-size: 10px;
+}
+
+input.customInput {
+	width: 80%;
+	background-color: white;
+	border: none;
+	border-bottom: 1px solid grey;
+	font-size: 18px;
+	padding: 0px;
+}
+
+.detalhesContato {
+	background-color: whitesmoke;
+	padding: 5px;
+	border: 1px solid grey;
+}
+
+.floatRightButton {
+	right: 5px;
+    position: absolute;
+    top: 25%;
+}
+
+.campoEditavel {
+	margin-bottom: 15px;
+	position: relative;
+}
+
+span.tituloCampo {
+	color: blue;
+	font-size: 12px;
+}
+
+span.descricaoCampo {
+	font-size: 18px;
+	padding: 2px;
+}
+
+.inputBusca {
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 3px;
+	background-color: grey;
+	color: white;
+	border: none;
+}
+
+.tituloLetra {
+	width: 100%; 
+	background-color: lightgrey; 
+	padding-left: 10px;
+}
+
+.listaNomes {
+	padding: 3px;
+}
+
+.nomeContato {
+	padding: 3px;
+	padding-left: 13px;
+}
+
+.headerLista {
+	width: 100%;
+	background-color: lightgrey;
+	padding: 5px;
+}
+
+.footerLista {
+	width: 100%;
+	background-color: lightgrey;
+	padding: 5px;
+	border-top: 1px solid grey;
+}
+
+::-webkit-input-placeholder {
+    color: lightgrey;
+}
+
+:-moz-placeholder {
+   color: whitesmoke;
+   opacity: 1;
+}
+
+::-moz-placeholder {
+   color: whitesmoke;
+   opacity:  1;
+}
+
+:-ms-input-placeholder {
+   color: whitesmoke;
+}
+
+::-ms-input-placeholder {
+   color: whitesmoke;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="appQuickfast">
+	<head>
+		<title></title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<script src="libs/jquery.min.js"></script>
+		<script src="libs/bootstrap.min.js"></script>
+		<script src="libs/angular.min.js"></script>
+		
+		<script src="js/app.js"></script>
+	</head>
+	<body ng-controller="MasterCtrl">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3 col-sm-4 col-xs-5 listaContatos" ng-controller="ListaContatosCtrl" ng-init="init()">
+					<div class="headerLista">
+						<div class="input-group">
+							<span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							<input type="text" class="form-control" placeholder="Buscar Contato" aria-describedby="basic-addon1" ng-model="searchFilter">
+						</div>
+					</div>
+					<div class="nomeContato" ng-repeat="contato in listaContatos | filter: {nome: searchFilter} | orderBySemAcentosNome" ng-click="selecionarCOntato(contato)">
+						{{contato.nome + " " + contato.sobrenome}}
+					</div>
+					<div class="footerLista">
+						<a ng-click="criarContato()"><span class="glyphicon glyphicon-plus" aria-hidden="true" style="font-size: 20px"></span></a>
+						<a ng-click="excluirContato()"><span class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 20px"></span></a>
+					</div>
+				</div>
+				<div class="col-md-9 col-sm-8 col-xs-7 detalhesContato" ng-controller="DetalhesContatoCtrl">
+					<form name="formContato" novalidate="novalidate" onsubmit="return false">
+						<div class="campoEditavel">
+							<a ng-click="editarContato()" style="float: right" ng-show="!estados.editar && !estados.novo">
+								<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="font-size: 25px"></span>
+								</a>
+							<a ng-click="salvarContato(formContato)" style="float: right" ng-show="estados.editar || estados.novo">Salvar</a>
+							<div style="padding: 15px">
+								<img class="imgRedonda" src="https://lh4.googleusercontent.com/-hhImNW00zNM/AAAAAAAAAAI/AAAAAAAAAF0/muJYbPzaq4c/photo.jpg"/>
+								<div class="containerNome">
+									<span class="descricaoCampo" ng-show="!estados.editar && !estados.novo">{{contatoSelecionado.nome}}</span>
+									<span ng-show="estados.editar || estados.novo">
+										<input placeholder="Nome" class="customInput" type="text" ng-model="contatoSelecionado.nome" required/><br>
+										<span class="campoObrigatorio">Obrigatorio</span>
+									</span><br>
+									<span class="descricaoCampo" ng-show="!estados.editar && !estados.novo"> {{contatoSelecionado.sobrenome}} </span>
+									<span ng-show="estados.editar || estados.novo">									
+										<input placeholder="Sobrenome" class="customInput" type="text" ng-model="contatoSelecionado.sobrenome" required/><br>
+										<span class="campoObrigatorio">Obrigatorio</span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div class="campoEditavel">
+						<a class="floatRightButton">Ligar</a>
+							<span class="tituloCampo">Telefone</span><br>
+							<span class="descricaoCampo" ng-show="!estados.editar && !estados.novo">{{contatoSelecionado.telefone}}</span>
+							<input placeholder="Telefone" class="customInput" type="text" ng-model="contatoSelecionado.telefone" ng-show="estados.editar || estados.novo"/>
+						</div>
+						<div class="campoEditavel">
+						<a class="floatRightButton">Ligar</a>
+							<span class="tituloCampo">Celular</span><br>
+							<span class="descricaoCampo" ng-show="!estados.editar && !estados.novo">{{contatoSelecionado.celular}}</span>
+							<input placeholder="Celular" class="customInput" type="text" ng-model="contatoSelecionado.celular" ng-show="estados.editar || estados.novo"/>
+						</div>
+						<div class="campoEditavel">
+							<span class="tituloCampo">Email</span><br>
+							<span class="descricaoCampo" ng-show="!estados.editar && !estados.novo">{{contatoSelecionado.email}}</span>
+							<input placeholder="Email" class="customInput" type="text" ng-model="contatoSelecionado.email" ng-show="estados.editar || estados.novo"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>
